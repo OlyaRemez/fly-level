@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="utf-8" />
+  <!-- <base href="/"> -->
+  <title>Start template Jobs</title>
+  <meta name="description" content="" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+  <meta property="og:image" content="path/to/image.jpg" />
+  <link rel="icon" href="img/favicon/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon-180x180.png" />
+  <meta name="theme-color" content="#000" />
+  <link rel="stylesheet" href="css/main.min.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+
+<body>
+  <div class="contact">
+    <div class="contact__info">
+      <h2 class="contact__title">CONTACT & APPLICATION</h2>
+      <p class="contact__description">
+        Your questions and comments are extremely important to our Aviation Training Organisation. We are continuously
+        looking for ways to improve our Customer Service. We care about your thoughts. If you have a question, comment
+        or concern, please feel free to share it with us. The Fly Level team will be happy to advice you.
+      </p>
+    </div>
+    <div class="contact__location romania">
+      <img src="img/romania_logo.png" alt="" />
+      <p class="contact__location__title">Romania</p>
+      <div class="contact__location__contact-data">
+        <p class="contact__location__contact-data__title">Address:</p>
+        <p class="contact__location__contact-data__data">
+          Ion Ionescu de la Brad Blvd., nr.61-63, sector 1, 013812 Bucharest.
+        </p>
+      </div>
+      <div class="contact__location__contact-data">
+        <p class="contact__location__contact-data__title">Telephone:</p>
+        <p class="contact__location__contact-data__data">+ 40 213 190 143</p>
+      </div>
+      <div class="contact__location__contact-data">
+        <p class="contact__location__contact-data__title">Fax:</p>
+        <p class="contact__location__contact-data__data">+ 40 318 169 359</p>
+      </div>
+      <div class="contact__location__contact-data">
+        <p class="contact__location__contact-data__title">Mobile:</p>
+        <p class="contact__location__contact-data__data">+ 40 751 559 999</p>
+      </div>
+      <div class="contact__location__contact-data">
+        <p class="contact__location__contact-data__title">Email:</p>
+        <p class="contact__location__contact-data__data">+ 40 318 169 359</p>
+      </div>
+    </div>
+    <div class="contact__location moldova">
+      <img src="img/moldova_logo.png" alt="" />
+      <p class="contact__location__title">REPUBLIC OF MOLDOVA</p>
+      <div class="contact__location__contact-data">
+        <p class="contact__location__contact-data__title">Address:</p>
+        <p class="contact__location__contact-data__data">
+          Chisinau International Airport, 2nd floor, Dacia Avenue 80/3, MD-2026 Chisinau.
+        </p>
+      </div>
+      <div class="contact__location__contact-data">
+        <p class="contact__location__contact-data__title">Fax:</p>
+        <p class="contact__location__contact-data__data">+ 40 318 169 359</p>
+      </div>
+      <div class="contact__location__contact-data">
+        <p class="contact__location__contact-data__title">Mobile:</p>
+        <p class="contact__location__contact-data__data">+ 373 79 474 653</p>
+      </div>
+      <div class="contact__location__contact-data">
+        <p class="contact__location__contact-data__title">Email:</p>
+        <p class="contact__location__contact-data__data">+ 40 318 169 359</p>
+      </div>
+    </div>
+  </div>
+  <div class="map">
+    <div class="map__locations">
+      <ul id="menu">
+        <li id="1" class="map__locations__active">Romania</li>
+        <li id="2">Moldova</li>
+      </ul>
+    </div>
+    <div class="map__map-init">
+      <svg class="map__map-init__map-border" id="map-top" viewbox="0 0 1920 101" aria-labeledby="title" width="100%">
+        <path d=" M 0 0 L 0 53 C 0 53 327.8 -22.9 908.6 8.7 C 1408.4 35.9 1920 101 1920 101 L 1920 0 L 0 0 Z "></path>
+      </svg>
+      <div class="map__map-init__route">
+        <div class="map__map-init__route__col-left">
+          <h2 class="map__map-init__route__title">Fly level</h2>
+          <p class="map__map-init__route__description">Address</p>
+        </div>
+        <a href="https://www.google.com/maps/dir//Fly+Level,+Strada+Aeroportului,+Chisinau,+%D0%9C%D0%BE%D0%BB%D0%B4%D0%B0%D0%B2%D0%B8%D1%8F/@46.9340424,28.9440408,17z/data=!4m8!4m7!1m0!1m5!1m1!1s0x40c979cc5066043f:0x582c2d23aa676cc3!2m2!1d28.9462295!2d46.9340424"
+          class="map__map-init__route__col-right">
+          <img class="map__map-init__route__direction-logo" src="img/direction.png" alt="">
+          <p class="map__map-init__route__direct">Get direction</p>
+        </a>
+      </div>
+      <div id="map-canvas"></div>
+    </div>
+    <script>
+      var markers = [{
+          lat: 44.499029,
+          lng: 26.070766
+        },
+        {
+          lat: 46.9340424,
+          lng: 28.9440408
+        },
+      ];
+      var map;
+
+      function initMap() {
+        map = new google.maps.Map(document.getElementById("map-canvas"), {
+          zoom: 17,
+          center: markers[0]
+        });
+
+        markers.forEach((marker) => {
+          new google.maps.Marker({
+            map,
+            position: marker
+          });
+        })
+
+        var menu = document.getElementById("menu");
+        if (menu) {
+          var children = menu.children;
+          for (let index = 0; index < children.length; index++) {
+            const element = children[index];
+            element.addEventListener("click", function (map, markers) {
+              $(element).click(function () {
+                $(this).addClass("map__locations__active");
+                $(children).not(this).removeClass("map__locations__active");
+              });
+              map.setCenter(markers);
+            }.bind(this, map, markers[index]));
+          }
+        }
+      }
+    </script>
+    <script async="async" defer="defer" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCj-q6KnREyNs1uTS05jtCFh5CMUdn0Nnc&callback=initMap"></script>
+  </div>
+</body>
+
+</html>

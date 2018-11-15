@@ -1,0 +1,279 @@
+@import "global-styles";
+
+@import url("https://fonts.googleapis.com/css?family=Roboto");
+
+@import url("https://fonts.googleapis.com/css?family=Roboto+Condensed");
+
+.contact {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1120px;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 50px;
+
+    &__title {
+        color: #486da3;
+        font-family: "Roboto Condensed", sans-serif;
+        font-size: 35px;
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+
+    &__description {
+        color: #111111;
+        font-family: "Roboto", sans-serif;
+        font-size: 15px;
+        font-weight: 400;
+    }
+
+    &__location {
+        margin-top: 20px;
+        display: flex;
+        flex-wrap: wrap;
+        max-width: 400px;
+        padding: 50px 80px 0px 0px;
+
+        &__title {
+            color: #486da3;
+            font-family: "Roboto Condensed", sans-serif;
+            font-size: 22px;
+            font-weight: 700;
+            text-transform: uppercase;
+            padding-left: 15px;
+        }
+
+        &__contact-data {
+            padding: 20px 0px 0px 65px;
+
+            &__title {
+                color: #111111;
+                font-family: "Roboto Condensed", sans-serif;
+                font-size: 14px;
+                font-weight: 700;
+                text-transform: uppercase;
+            }
+
+            &__data {
+                color: #111111;
+                font-family: "Roboto", sans-serif;
+                font-size: 14px;
+                font-weight: 400;
+                line-height: 1.8;
+                padding-top: 4px;
+            }
+        }
+    }
+}
+
+.map {
+    margin-top: 70px;
+
+    &__locations {
+        color: #cd2229;
+        font-family: "Roboto Condensed", sans-serif;
+        font-size: 16px;
+        font-weight: 400;
+        text-transform: uppercase;
+        max-width: 1120px;
+        margin: 0 auto;
+        padding: 0px 0px 20px 0px;
+
+        & li {
+            display: inline-block;
+            cursor: pointer;
+            padding: 0px 20px 20px 0px;
+        }
+
+        & ul {
+            border-bottom: 1px solid #dedede;
+        }
+
+        &__active {
+            color: #111111;
+            text-decoration: underline;
+        }
+    }
+
+    &__map-init {
+        position: relative;
+        width: 100%;
+
+        &__map-border {
+            position: absolute;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            width: 100%;
+            fill: white;
+        }
+
+        &__route {
+            background-color: white;
+            position: absolute;
+            top: 60px;
+            left: 70px;
+            z-index: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 15px 0px 15px 0px;
+            width: 300px;
+
+            &__col-left {
+                padding: 0px 22px 10px 0px;
+                border-right: 1px solid grey;
+            }
+
+            &__col-right {
+                text-align: center;
+                padding: 0px 0px 0px 22px;
+                cursor: pointer;
+                text-decoration: none;
+            }
+
+            &__title {
+                font-family: "Roboto", sans-serif;
+                font-size: 18px;
+                line-height: 0.2;
+            }
+
+            &__description {
+                color: #4e4e4e;
+                font-family: "Roboto", sans-serif;
+                font-size: 14px;
+            }
+
+            &__direct {
+                color: #cd2229;
+                font-family: "Roboto Condensed", sans-serif;
+                font-size: 16px;
+                font-weight: 400;
+                text-transform: uppercase;
+            }
+
+            &__direction-logo {
+                margin: 0 auto;
+            }
+        }
+    }
+
+    & #map-canvas {
+        height: 550px;
+        width: 100%;
+        margin-top: 40px;
+        padding: 0px;
+    }
+}
+
+.gmnoprint {
+    display: none;
+}
+
+.gm-fullscreen-control {
+    display: none;
+}
+
+@media (max-width: 1200px) {
+    .contact {
+        max-width: 900px;
+
+        &__location {
+            max-width: 370px;
+            padding: 50px 80px 0px 0px;
+
+            &__contact-data {
+                padding: 10px 0px 0px 65px;
+            }
+        }
+    }
+
+    .map {
+        &__locations {
+            max-width: 600px;
+        }
+    }
+}
+
+@media (max-width: 992px) {
+    .contact {
+        max-width: 700px;
+
+        &__location {
+            max-width: 330px;
+            padding: 50px 20px 0px 0px;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .contact {
+        max-width: 600px;
+        margin: 0 auto;
+        text-align: center;
+
+        &__title {
+            font-size: 30px;
+            line-height: 1.5;
+        }
+
+        &__description {
+            padding-bottom: 50px;
+        }
+
+        &__location {
+            border-top: 1px solid #dedede;
+            border-bottom: 1px solid #dedede;
+            display: block;
+            max-width: 600px;
+            padding: 40px 0px 40px 0px;
+            text-align: center;
+            margin: 0 auto;
+
+            &__title {
+                padding-left: 0px;
+            }
+
+            &__contact-data {
+                padding: 15px 0px 0px 0px;
+            }
+        }
+    }
+
+    .map {
+        margin-top: 40px;
+
+        &__locations {
+            text-align: center;
+            margin-top: 0px;
+
+            & ul {
+                border-bottom: none;
+                text-align: center;
+            }
+        }
+
+        & #map-canvas {
+            margin-top: 0px;
+        }
+    }
+}
+
+@media (max-width: 576px) {
+    .map {
+        &__map-init {
+            &__route {
+                background-color: white;
+                position: absolute;
+                top: 60px;
+                z-index: 1;
+                display: flex;
+                padding: 10px 0px 12px 0px;
+                left: 50%;
+                transform: translate(-50%, 0);
+            }
+        }
+    }
+}
